@@ -1,4 +1,6 @@
+import 'package:first_foxai_project/menu_screen.dart';
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 class WorkOrderScreen extends StatefulWidget {
   @override
@@ -18,29 +20,33 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-              flexibleSpace: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Color(0xFFA9BDBF), Color(0xFF1768A6)],
-                  ),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xFFA9BDBF), Color(0xFF1768A6)],
+              ),
+            ),
+          ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //logo
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Image.network(
+                  'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
+                  height: 200,
+                  width: 150,
                 ),
               ),
-             title: Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-                 //logo
-                 Padding(padding: const EdgeInsets.only(right: 10),
-            child: Image.network('https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
-              height: 200,
-              width: 150,
-             ),
-          ),
-                Expanded(
-                  // padding: const EdgeInsets.only(left: 10),
+              Expanded(
+                // padding: const EdgeInsets.only(left: 10),
+                child: Transform.translate(
+                  offset: Offset(-70, 0), //dịch phần tử sang trái 20px
                   child: Text(
                     "Chọn ca làm việc",
                     style: TextStyle(
@@ -51,11 +57,12 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-              ],
-            ),
-            // backgroundColor: Colors.red[700],
+              ),
+            ],
           ),
+          // backgroundColor: Colors.red[700],
         ),
+      ),
       body: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -68,7 +75,6 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
         child: Center(
           child: Container(
             width: MediaQuery.of(context).size.width * 0.6,
-            // color: Colors.white,
             padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +148,14 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MenuScreen(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
                           padding: const EdgeInsets.symmetric(
@@ -157,7 +170,14 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
                       ),
                       const SizedBox(height: 10),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue[700],
                           padding: const EdgeInsets.symmetric(

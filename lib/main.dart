@@ -1,9 +1,10 @@
+import 'package:first_foxai_project/menu_screen.dart';
 import 'package:first_foxai_project/workOrder_screen.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
 
 void main() {
-  runApp(MaterialApp(home: WorkOrderScreen()));
+  runApp(MaterialApp(home: MenuScreen()));
 }
 
 class MyApp extends StatelessWidget {

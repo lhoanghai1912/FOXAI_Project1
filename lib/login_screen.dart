@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'workOrder_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -77,6 +78,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       String username = usernameController.text;
                       String password = passwordController.text;
                       print('Tên đăng nhập: $username, Mật khẩu: $password');
+
+                      // navigate to WorkOrderScreen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WorkOrderScreen(),
+                        ),
+                      );
                     },
                     child: Text('Đăng nhập'),
                   ),
