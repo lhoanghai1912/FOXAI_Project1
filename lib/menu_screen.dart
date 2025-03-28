@@ -59,7 +59,7 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
               Expanded(
                 child: Transform.translate(
-                  offset: Offset(-70, 0), //dịch phần tử sang trái 20px
+                  offset: Offset(-10, 0), //dịch phần tử sang trái 20px
                   child: Text(
                     "Menu",
                     style: TextStyle(
@@ -106,58 +106,93 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 400,
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                shrinkWrap: true,
-                children: List.generate(buttonTexts.length, (index) {
-                  return ElevatedButton(
-                    style: buttonStyle,
-                    onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => SettingScreen()),
-                      // );
-                    },
-                    child: Text(buttonTexts[index]),
-                  );
-                }),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: List.generate(4, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          child: ElevatedButton(
+                            style: buttonStyle,
+                            onPressed: () {},
+                            child: Text(buttonTexts[index],
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    children: List.generate(4, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          child: ElevatedButton(
+                            style: buttonStyle,
+                            onPressed: () {},
+                            child: Text(buttonTexts[index + 4],
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              ],
             ),
+            const SizedBox(width: 20),
             const SizedBox(height: 20),
+            // Button 9: Báo cáo
             Center(
               child: SizedBox(
-                width: 200,
+                width: MediaQuery.of(context).size.width * 0.5,
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => SettingScreen()),
-                    // );
+                    print("Báo cáo clicked");
                   },
-                  child: Text("Báo cáo"),
+                  child: const Text("Báo cáo",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 20),
-            // Button 10
+            // Button 10: Đăng xuất
             Center(
               child: SizedBox(
                 width: 200,
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => SettingScreen()),
-                    // );
+                    print("Đăng xuất clicked");
                   },
-                  child: Text("Đăng xuất"),
+                  child: Text("Đăng xuất",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,),
+                  ),
                 ),
               ),
             ),
