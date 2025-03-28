@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'workOrder_screen.dart';
+import 'package:passwordfield/passwordfield.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -45,7 +46,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: usernameController,
                     decoration: InputDecoration(
                       labelText: 'Tên đăng nhập',
-                      border: OutlineInputBorder(),
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 22,
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -54,7 +66,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
                       labelText: 'Mật khẩu',
-                      border: const OutlineInputBorder(),
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 22,
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: const OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword
@@ -72,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white38,
+                      backgroundColor: Colors.white,
                     ),
                     onPressed: () {
                       String username = usernameController.text;
@@ -87,7 +110,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     },
-                    child: Text('Đăng nhập'),
+                    child: Text(
+                      'Đăng nhập',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 22,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                 ],
               ),

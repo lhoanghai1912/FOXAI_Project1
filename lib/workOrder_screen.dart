@@ -40,7 +40,7 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
                 child: Image.network(
                   'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
                   height: 200,
-                  width: 150,
+                  width: 180,
                 ),
               ),
               Expanded(
@@ -72,130 +72,190 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
             colors: [Color(0xFFA9BDBF), Color(0xFF1768A6)],
           ),
         ),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.6,
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 0.5),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16, top: 8),
+              child: Text(
+                "Welcome, username",
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  padding: const EdgeInsets.all(20),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      _buildInputBox(
-                        "Mã lệnh sản xuất",
-                        DropdownButtonFormField<String>(
-                          value: selectedOrder,
-                          items:
-                              workOrders.map((order) {
-                                return DropdownMenuItem(
-                                  value: order,
-                                  child: Text(order),
-                                );
-                              }).toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              selectedOrder = value!;
-                            });
-                          },
-                          decoration: const InputDecoration(
-                            labelText: "Mã lệnh sản xuất",
-                            border: OutlineInputBorder(),
-                          ),
+                      Container(
+                        foregroundDecoration: BoxDecoration(
+                          // color: Colors.white,
+                        ),
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 0.5),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildInputBox(
+                              "Mã lệnh sản xuất",
+                              Container(
+                                decoration: BoxDecoration(
+                                  // color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: DropdownButtonFormField<String>(
+                                  value: selectedOrder,
+                                  items:
+                                      workOrders.map((order) {
+                                        return DropdownMenuItem(
+                                          value: order,
+                                          child: Text(
+                                            order,
+                                            style: const TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                        );
+                                      }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      selectedOrder = value!;
+                                    });
+                                  },
+                                  decoration: const InputDecoration(
+                                    labelText: "Mã lệnh sản xuất",
+                                    labelStyle: TextStyle(fontSize: 26),
+                                    border: OutlineInputBorder(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 50),
+                            _buildInputBox(
+                              "Mã sản phẩm",
+                              TextFormField(
+                                initialValue: "TP00624",
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                                decoration: const InputDecoration(
+                                  labelStyle: TextStyle(fontSize: 26),
+                                  labelText: "Mã sản phẩm",
+                                  border: OutlineInputBorder(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                readOnly: true,
+                              ),
+                            ),
+                            const SizedBox(height: 50),
+                            _buildInputBox(
+                              "Tên sản phẩm",
+                              TextFormField(
+                                initialValue: "TP thực phẩm chức năng",
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                                decoration: const InputDecoration(
+                                  labelText: "Tên sản phẩm",
+                                  labelStyle: TextStyle(fontSize: 26),
+                                  // filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                readOnly: true,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _buildInputBox(
-                        "Mã sản phẩm",
-                        TextFormField(
-                          initialValue: "TP00624",
-                          decoration: const InputDecoration(
-                            labelText: "Mã sản phẩm",
-                            border: OutlineInputBorder(),
-                          ),
-                          readOnly: true,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      _buildInputBox(
-                        "Tên sản phẩm",
-                        TextFormField(
-                          initialValue: "TP thực phẩm chức năng",
-                          decoration: const InputDecoration(
-                            labelText: "Tên sản phẩm",
-                            border: OutlineInputBorder(),
-                          ),
-                          readOnly: true,
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MenuScreen(),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 15,
+                                  horizontal: 30,
+                                ),
+                              ),
+                              child: const Text(
+                                "Xác nhận",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginScreen(),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[700],
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 15,
+                                  horizontal: 30,
+                                ),
+                              ),
+                              child: const Text(
+                                "Đăng xuất",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MenuScreen(),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 30,
-                          ),
-                        ),
-                        child: const Text(
-                          "Xác nhận",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue[700],
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 30,
-                          ),
-                        ),
-                        child: const Text(
-                          "Đăng xuất",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

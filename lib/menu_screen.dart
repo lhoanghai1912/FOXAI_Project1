@@ -1,3 +1,6 @@
+import 'package:first_foxai_project/login_screen.dart';
+import 'package:first_foxai_project/workOrder_screen.dart';
+
 import 'setting_Screen.dart';
 import 'package:flutter/material.dart';
 import 'user_Screen.dart';
@@ -19,7 +22,7 @@ class _MenuScreenState extends State<MenuScreen> {
       "Biểu mẫu pha chế",
       "Trả lại nguyên vật liệu",
       "Nhập điều chỉnh",
-      "Xuất điểu chỉnh",
+      "Xuất điều chỉnh",
     ];
 
     //Style nút dùng chung
@@ -54,7 +57,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: Image.network(
                   'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
                   height: 200,
-                  width: 150,
+                  width: 180,
                 ),
               ),
               Expanded(
@@ -83,7 +86,6 @@ class _MenuScreenState extends State<MenuScreen> {
                 );
               },
             ),
-
             IconButton(
               icon: Image.asset('assets/icons/user.png'),
               onPressed: () {
@@ -106,92 +108,177 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Column(
-                    children: List.generate(4, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: ElevatedButton(
-                            style: buttonStyle,
-                            onPressed: () {},
-                            child: Text(buttonTexts[index],
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Column(
-                    children: List.generate(4, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: ElevatedButton(
-                            style: buttonStyle,
-                            onPressed: () {},
-                            child: Text(buttonTexts[index + 4],
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(width: 20),
-            const SizedBox(height: 20),
-            // Button 9: Báo cáo
-            Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    print("Báo cáo clicked");
-                  },
-                  child: const Text("Báo cáo",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(right: 16, top: 8),
+              child: Text(
+                "Welcome, username",
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
             ),
             const SizedBox(height: 20),
-            // Button 10: Đăng xuất
-            Center(
-              child: SizedBox(
-                width: 200,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    print("Đăng xuất clicked");
-                  },
-                  child: Text("Đăng xuất",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,),
+            Expanded(
+              child: Center(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: List.generate(4, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.5,
+                                    child: ElevatedButton(
+                                      // style: buttonStyle,
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.white,
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 15,
+                                          horizontal: 30,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        buttonTexts[index],
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          Expanded(
+                            child: Column(
+                              children: List.generate(4, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.5,
+                                    child: ElevatedButton(
+                                      // style: buttonStyle,
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.white,
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 15,
+                                          horizontal: 30,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        buttonTexts[index + 4],
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 20),
+                      const SizedBox(height: 20),
+                      // Button 9: Báo cáo
+                      Center(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: MediaQuery.of(context).size.height * 0.07,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              print("Báo cáo clicked");
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 15,
+                                horizontal: 30,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: const Text(
+                              "Báo cáo",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      // Button 10: Đăng xuất
+                      Center(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.07,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              print("Đăng xuất clicked");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 15,
+                                horizontal: 30,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "Đăng xuất",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
