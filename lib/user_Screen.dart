@@ -67,8 +67,8 @@ class _UserScreenState extends State<UserScreen> {
               //logo
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Image.network(
-                  'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
+                child: Image.asset(
+                  'assets/images/logo.png',
                   height: 200,
                   width: 180,
                 ),
@@ -135,8 +135,9 @@ class _UserScreenState extends State<UserScreen> {
                             decoration: InputDecoration(
                               labelText: 'User Name',
                               labelStyle: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -159,8 +160,9 @@ class _UserScreenState extends State<UserScreen> {
                             decoration: InputDecoration(
                               labelText: 'Password',
                               labelStyle: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -180,16 +182,18 @@ class _UserScreenState extends State<UserScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(
-                            controller: controllers[2],                            style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                            controller: controllers[2],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
                             decoration: InputDecoration(
                               labelText: 'Name',
                               labelStyle: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -203,16 +207,18 @@ class _UserScreenState extends State<UserScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(
-                            controller: controllers[3],                            style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                            controller: controllers[3],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
                             decoration: InputDecoration(
                               labelText: 'Department',
                               labelStyle: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -241,8 +247,9 @@ class _UserScreenState extends State<UserScreen> {
                             decoration: InputDecoration(
                               labelText: 'Position',
                               labelStyle: const TextStyle(
-                                  fontSize: 22,
-                              fontWeight: FontWeight.bold),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

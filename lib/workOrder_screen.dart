@@ -37,8 +37,8 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
               //logo
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Image.network(
-                  'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
+                child: Image.asset(
+                  'assets/images/logo.png',
                   height: 200,
                   width: 180,
                 ),
@@ -103,8 +103,9 @@ class _WorkOrderScreenState extends State<WorkOrderScreen> {
                         height: MediaQuery.of(context).size.height * 0.5,
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           border: Border.all(width: 0.5),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,

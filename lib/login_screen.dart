@@ -37,10 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.network(
-                    'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png', // Thay URL logo web của bạn
-                    height: 100,
-                  ),
+                  Image.asset('assets/images/logo.png', height: 100),
                   SizedBox(height: 20),
                   TextField(
                     controller: usernameController,

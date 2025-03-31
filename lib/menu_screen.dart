@@ -1,8 +1,7 @@
 import 'package:first_foxai_project/login_screen.dart';
 import 'package:first_foxai_project/workOrder_screen.dart';
-
-import 'setting_Screen.dart';
 import 'package:flutter/material.dart';
+import 'discharge_Screen.dart';
 import 'user_Screen.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -25,6 +24,9 @@ class _MenuScreenState extends State<MenuScreen> {
       "Xuất điều chỉnh",
     ];
 
+    final List<Widget> screens = [
+       DischargeScreen(),
+      ];
     //Style nút dùng chung
     final ButtonStyle buttonStyle = ElevatedButton.styleFrom(
       backgroundColor: Colors.white38,
@@ -54,8 +56,8 @@ class _MenuScreenState extends State<MenuScreen> {
               //logo
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Image.network(
-                  'https://dkpharma.vn/wp-content/uploads/2024/08/logo-2024.png',
+                child: Image.asset(
+                  'assets/images/logo.png',
                   height: 200,
                   width: 180,
                 ),
@@ -82,7 +84,7 @@ class _MenuScreenState extends State<MenuScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SettingScreen()),
+                  MaterialPageRoute(builder: (context) => WorkOrderScreen()),
                 );
               },
             ),
@@ -142,7 +144,13 @@ class _MenuScreenState extends State<MenuScreen> {
                                         MediaQuery.of(context).size.width * 0.5,
                                     child: ElevatedButton(
                                       // style: buttonStyle,
-                                      onPressed: () {},
+                                      onPressed: () {
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => screens[index],
+      ),
+      );
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.white,
                                         padding: const EdgeInsets.symmetric(
@@ -289,3 +297,23 @@ class _MenuScreenState extends State<MenuScreen> {
     );
   }
 }
+//
+// class login_Screen extends StatelessWidget {
+//   const login_Screen();
+//   @override
+//   Widget build(BuildContext context){
+//     return const Scaffold(
+//       body: Center(child: Text('This is Login Screen')),
+//     );
+//   }
+// }
+//
+// class discharge_Screen extends StatelessWidget {
+//   const discharge_Screen({super.key});
+//   @override
+//   Widget build(BuildContext context){
+//     return const Scaffold(
+//       body: Center(child: Text('This is Discharge Screen')),
+//     );
+//   }
+// }
